@@ -2,7 +2,7 @@ services:
   walker:
     build: .
     ports:
-      - "8098:98"
+      - "8098:80"
     volumes:
       - .:/usr/share/nginx/html:ro
     restart: unless-stopped
