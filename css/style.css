@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a1a2e;
+  color: #eaeaea;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #a0c4ff;
+  margin-bottom: 12px;
+}
+
+#canvas-container {
+  border: 2px solid #2d4a8a;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+#mainCanvas {
+  display: block;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.15s, transform 0.1s;
+}
+
+button:active { transform: scale(0.96); }
+
+#btnStart {
+  background: #27ae60;
+  color: #fff;
+  min-width: 90px;
+}
+
+#btnStart.running { background: #e67e22; }
+
+#btnReset {
+  background: #c0392b;
+  color: #fff;
+}
+
+.speed-group {
+  display: flex;
+  gap: 3px;
+  background: #16213e;
+  border-radius: 6px;
+  padding: 3px;
+  flex-wrap: wrap;
+}
+
+.speed-btn {
+  background: transparent;
+  color: #aaa;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  min-width: 0;
+}
+
+.speed-btn.active {
+  background: #2d4a8a;
+  color: #fff;
+}
+
+/* ── Config panel ─────────────────────────────────────────────────────── */
+.config-panel {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: #16213e;
+  border-radius: 8px;
+  padding: 10px 18px;
+  border: 1px solid #2d4a8a;
+}
+
+.config-label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.75rem;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.config-label input {
+  background: #0f1b35;
+  border: 1px solid #2d4a8a;
+  border-radius: 5px;
+  color: #a0c4ff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 5px 10px;
+  width: 110px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.config-label input:focus {
+  border-color: #5580c8;
+}
+
+#btnApply {
+  background: #2d4a8a;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  align-self: flex-end;
+  margin-bottom: 1px;
+}
+
+#btnApply:hover { background: #3a5fad; }
+
+/* ── Stats ────────────────────────────────────────────────────────────── */
+.stats {
+  display: flex;
+  gap: 24px;
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: #bbb;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-item span {
+  color: #a0c4ff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.charts {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#sparklineCanvas {
+  border: 1px solid #2d4a8a;
+  border-radius: 4px;
+  background: #0f1b35;
+}
+
+.chart-label {
+  font-size: 0.72rem;
+  color: #777;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.fitness-bar-container {
+  width: 200px;
+}
+
+.fitness-bar-bg {
+  height: 18px;
+  background: #0f1b35;
+  border: 1px solid #2d4a8a;
+  border-radius: 9px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+#fitnessBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #27ae60, #2ecc71);
+  border-radius: 9px;
+  transition: width 0.3s;
+}

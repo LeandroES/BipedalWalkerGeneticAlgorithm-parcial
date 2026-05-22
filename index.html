@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bipedal Walker — Algoritmo Genético</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h1>Bipedal Walker · Algoritmo Genético</h1>
+
+  <div id="canvas-container">
+    <canvas id="mainCanvas"></canvas>
+  </div>
+
+  <div class="controls">
+    <button id="btnStart">Iniciar</button>
+
+    <div class="speed-group" title="Pasos físicos por frame">
+      <button class="speed-btn active" data-speed="1">1×</button>
+      <button class="speed-btn"        data-speed="2">2×</button>
+      <button class="speed-btn"        data-speed="4">4×</button>
+      <button class="speed-btn"        data-speed="8">8×</button>
+      <button class="speed-btn"        data-speed="16">16×</button>
+      <button class="speed-btn"        data-speed="32">32×</button>
+      <button class="speed-btn"        data-speed="64">64×</button>
+    </div>
+
+    <button id="btnReset">Reiniciar</button>
+  </div>
+
+  <div class="config-panel">
+    <label class="config-label">
+      Individuos
+      <input type="number" id="inpPopSize" value="150" min="20" max="500" step="10" />
+    </label>
+    <label class="config-label">
+      Límite fitness (px)
+      <input type="number" id="inpFitnessLimit" value="1500" min="200" max="20000" step="100" />
+    </label>
+    <button id="btnApply">Aplicar y Reiniciar</button>
+  </div>
+
+  <div class="stats">
+    <div class="stat-item">Generación: <span id="genValue">0</span></div>
+    <div class="stat-item">Mejor Fitness: <span id="bestValue">0.0</span> px</div>
+    <div class="stat-item">Promedio: <span id="avgValue">0.0</span> px</div>
+  </div>
+
+  <div class="charts">
+    <div>
+      <div class="chart-label">Progreso del mejor fitness</div>
+      <canvas id="sparklineCanvas" width="360" height="70"></canvas>
+    </div>
+    <div class="fitness-bar-container">
+      <div class="chart-label" id="lblFitnessLimit">Fitness relativo (0 – 1500 px)</div>
+      <div class="fitness-bar-bg">
+        <div id="fitnessBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Matter.js (vendored — must load before ES modules) -->
+  <script src="lib/matter.min.js"></script>
+  <!-- Main application (ES6 modules) -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
